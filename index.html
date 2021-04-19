@@ -40,10 +40,11 @@
           <ul>
             <li v-for='film in films' class="films-container">
               <div>
-                <p>Title: {{film.name}}</p>
-                <p>Title-Original: {{film.original_name}}</p>
-                <p>Lenguage: {{film.original_language}}</p>
-                <p>Popularity: {{film.popularity}}</p>
+                <h2>Title: {{film.name}}</h2>
+                <h2>Title-Original: {{film.original_name}}</h2>
+                <h2 v-if='film.original_language == "en" || film.original_language == "it"' v-html="flag(film.original_language)">Language: {{film.original_language}}</h2>
+                <h2 v-else >Language: {{film.original_language}}</h2>
+                <h2>Rating: {{film.vote_average}}</h2>
               </div>
             </li>
           </ul>

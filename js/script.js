@@ -26,16 +26,27 @@ function initVue() {
 
             this.films = data.data.results;
             console.log(this.films);
+
           })
           .catch(function(e){
 
             this.error = e;
           });
+          
 
       },
       submit: function(){
         this.mounted();
-      }
+      },
+      flag: function (language) {
+                if (language == 'en') {
+                  return 'Language: <img src="img/en.png" alt="bandiera-inglese">';
+                }
+                else if (language == 'it'){
+                  return 'Language: <img src="img/it.png" alt="bandiera-italiana">';
+                }
+
+            },
 
     }
 
