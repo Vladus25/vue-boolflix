@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email list</title>
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- VueJs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- VueAXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <!-- MY JS -->
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- Ricerca del films -->
+      <header>
+
+        <div class="bar-search">
+          <div class="asd">
+            <input type="text" name="" value="" placeholder="Search" v-model='search'>
+            <button type="button" name="button" @click='submit'>Search</button>
+          </div>
+        </div>
+
+      </header>
+
+      <!-- Main con film trovati -->
+      <main>
+
+        <div class="container">
+          <ul>
+            <li v-for='film in films' class="films-container">
+              <div>
+                <p>Title: {{film.name}}</p>
+                <p>Title-Original: {{film.original_name}}</p>
+                <p>Lenguage: {{film.original_language}}</p>
+                <p>Popularity: {{film.popularity}}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </main>
+
+    </div>
+  </body>
+</html>
