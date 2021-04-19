@@ -25,7 +25,11 @@
       <header>
 
         <div class="bar-search">
-          <div class="asd">
+          <!-- Logo -->
+          <div class="logo-flix">
+            <img src="img/flix.png" alt="NetFlix">
+          </div>
+          <div>
             <input type="text" name="" value="" placeholder="Search" v-model='search'>
             <button type="button" name="button" @click='submit'>Search</button>
           </div>
@@ -37,29 +41,35 @@
       <main>
 
         <div class="container">
-          <h1>Films</h1>
+          <h1 class="headline">{{headline1}}</h1>
           <ul>
-            <li v-for='(film, index) in films' class="films-container">
-              <div>
-                {{index}}
-                <h2>Title: {{film.title}}</h2>
-                <h2>Title-Original: {{film.original_title}}</h2>
-                <h2 v-if='film.original_language == "en" || film.original_language == "it"' v-html="flag(film.original_language)">Language: {{film.original_language}}</h2>
-                <h2 v-else >Language: {{film.original_language}}</h2>
-                <h2>Rating: {{film.vote_average}}</h2>
+            <li v-for='film in films' class="films-container">
+              <img class="no-image" v-if='film.poster_path == null' src="img/no-image.png" alt="">
+              <img class="cover" v-else :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" alt="Cover">
+              <div class="film-description">
+                <h3>Title: {{film.title}}</h3>
+                <h3>Title-Original: {{film.original_title}}</h3>
+                <h3 class="img-flag" v-if='film.original_language == "en" || film.original_language == "it"' v-html="flag(film.original_language)"></h3>
+                <h3 v-else >Language: {{film.original_language}}</h3>
+                <h3>Rating: {{film.vote_average}}</h3>
+                <h3 v-if="film.overview.length < 600">Overwiew: {{film.overview.slice(0, 600)}}</h3>
+                <h3 v-else>Overwiew: {{film.overview.slice(0, 600)}}...</h3>
               </div>
             </li>
           </ul>
-          <h1>Serials</h1>
+          <h1 class="headline">{{headline2}}</h1>
           <ul>
-            <li v-for='(serial, index) in serials' class="films-container">
-              <div>
-                {{index}}
-                <h2>Title: {{serial.name}}</h2>
-                <h2>Title-Original: {{serial.original_name}}</h2>
-                <h2 v-if='serial.original_language == "en" || serial.original_language == "it"' v-html="flag(serial.original_language)">Language: {{serial.original_language}}</h2>
-                <h2 v-else>Language: {{serial.original_language}}</h2>
-                <h2>Rating: {{serial.vote_average}}</h2>
+            <li v-for='serial in serials' class="films-container">
+              <img class="no-image" v-if='serial.poster_path == null' src="img/no-image.png" alt="">
+              <img class="cover" v-else :src="'https://image.tmdb.org/t/p/w342' + serial.poster_path" alt="Cover">
+              <div class="film-description">
+                <h3>Title: {{serial.name}}</h3>
+                <h3>Title-Original: {{serial.original_name}}</h3>
+                <h3 class="img-flag" v-if='serial.original_language == "en" || serial.original_language == "it"' v-html="flag(serial.original_language)"></h3>
+                <h3 v-else>Language: {{serial.original_language}}</h3>
+                <h3>Rating: {{serial.vote_average}}</h3>
+                <h3 v-if="serial.overview.length < 600">Overwiew: {{serial.overview.slice(0, 600)}}</h3>
+                <h3 v-else>Overwiew: {{serial.overview.slice(0, 600)}}...</h3>
               </div>
             </li>
           </ul>

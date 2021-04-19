@@ -10,7 +10,8 @@ function initVue() {
       'films':[],
       'serials': [],
       'search':'',
-
+      'headline1': 'Films',
+      'headline2': 'Serials',
     },
     methods: {
 
