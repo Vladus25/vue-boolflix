@@ -37,14 +37,29 @@
       <main>
 
         <div class="container">
+          <h1>Films</h1>
           <ul>
-            <li v-for='film in films' class="films-container">
+            <li v-for='(film, index) in films' class="films-container">
               <div>
-                <h2>Title: {{film.name}}</h2>
-                <h2>Title-Original: {{film.original_name}}</h2>
+                {{index}}
+                <h2>Title: {{film.title}}</h2>
+                <h2>Title-Original: {{film.original_title}}</h2>
                 <h2 v-if='film.original_language == "en" || film.original_language == "it"' v-html="flag(film.original_language)">Language: {{film.original_language}}</h2>
                 <h2 v-else >Language: {{film.original_language}}</h2>
                 <h2>Rating: {{film.vote_average}}</h2>
+              </div>
+            </li>
+          </ul>
+          <h1>Serials</h1>
+          <ul>
+            <li v-for='(serial, index) in serials' class="films-container">
+              <div>
+                {{index}}
+                <h2>Title: {{serial.name}}</h2>
+                <h2>Title-Original: {{serial.original_name}}</h2>
+                <h2 v-if='serial.original_language == "en" || serial.original_language == "it"' v-html="flag(serial.original_language)">Language: {{serial.original_language}}</h2>
+                <h2 v-else>Language: {{serial.original_language}}</h2>
+                <h2>Rating: {{serial.vote_average}}</h2>
               </div>
             </li>
           </ul>
