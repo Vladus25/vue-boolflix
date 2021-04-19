@@ -26,10 +26,6 @@ header{
   height: 78px;
 }
 
-.bar-serch-center{
-  align-self: center;
-}
-
 .bar-search input{
   font-size: 20px;
   border: none;
@@ -74,11 +70,6 @@ header{
   height: 500px;
 }
 
-/* Dimensione del flag */
-.img-flag img{
-  width: 30px;
-}
-
 /* Cover */
 .cover{
  height: 500px;
@@ -88,6 +79,7 @@ header{
  right: 0;
 }
 
+/* No Cover */
 .no-image{
   max-width: 333px;
   height: 500px;
@@ -96,8 +88,14 @@ header{
   right: 0;
 }
 
+/* Hover on Cover */
 .films-container:hover .cover, .films-container:hover .no-image{
   display: none;
+}
+
+/* Dimensione del flag */
+.img-flag img{
+  width: 30px;
 }
 
 /* Film description */
@@ -112,11 +110,15 @@ header{
   padding: 5px 0;
 }
 
-/* Nome di rubrica */
-
+/* Nome di Rubrica */
 .headline{
   color: white;
   font-size: 40px;
   padding-top: 85px;
   padding-left: 25px;
+}
+
+/* Stelle */
+.fa, .fas{
+  color: rgba(247, 255, 0, 0.80);
 }

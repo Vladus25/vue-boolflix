@@ -2,6 +2,16 @@
 
 function initVue() {
 
+  Vue.component('start-rating', {
+    tempate: '#Start-rating',
+    props: ['max', 'current'],
+    computed: {
+      getRating: function() {
+        return (this.current / this.max) * 100
+      }
+    }
+  })
+
   new Vue({
 
     el: '#app',
@@ -28,7 +38,6 @@ function initVue() {
 
             this.films = data.data.results;
             console.log(this.films);
-
           })
           .catch(function(e){
 
@@ -66,7 +75,9 @@ function initVue() {
         }
 
       },
-
+      value: function (numberValue) {
+        return parseInt(Math.round(numberValue/2));
+      }
     }
 
   });
