@@ -2,16 +2,6 @@
 
 function initVue() {
 
-  Vue.component('start-rating', {
-    tempate: '#Start-rating',
-    props: ['max', 'current'],
-    computed: {
-      getRating: function() {
-        return (this.current / this.max) * 100
-      }
-    }
-  })
-
   new Vue({
 
     el: '#app',

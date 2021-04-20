@@ -41,7 +41,7 @@
       <main>
 
         <div class="container">
-          <h1 class="headline">{{headline1}}</h1>
+          <h1 class="headline" v-if="films.length > 0">{{headline1}}</h1>
           <!-- Films -->
           <ul>
             <li v-for='film in films' class="films-container">
@@ -49,7 +49,7 @@
               <img class="cover" v-else :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" alt="Cover">
               <div class="film-description">
                 <h3>Title: {{film.title}}</h3>
-                <h3>Title-Original: {{film.original_title}}</h3>
+                <h3 v-if='film.title !== film.original_title'>Title-Original: {{film.original_title}}</h3>
                 <h3 class="img-flag" v-if='film.original_language == "en" || film.original_language == "it"' v-html="flag(film.original_language)"></h3>
                 <h3 v-else >Language: {{film.original_language}}</h3>
                 <h3>Rating: <i v-for ="(star, index) in 5" :class=" value(film.vote_average) > index ? 'fas fa-star' : 'far fa-star'"></i> {{film.vote_average}}</h3>
@@ -58,7 +58,7 @@
               </div>
             </li>
           </ul>
-          <h1 class="headline">{{headline2}}</h1>
+          <h1 class="headline" v-if="serials.length > 0">{{headline2}}</h1>
           <!-- Serials -->
           <ul>
             <li v-for='serial in serials' class="films-container">
@@ -66,7 +66,7 @@
               <img class="cover" v-else :src="'https://image.tmdb.org/t/p/w342' + serial.poster_path" alt="Cover">
               <div class="film-description">
                 <h3>Title: {{serial.name}}</h3>
-                <h3>Title-Original: {{serial.original_name}}</h3>
+                <h3 v-if='serial.title !== serial.original_title'>Title-Original: {{serial.original_name}}</h3>
                 <h3 class="img-flag" v-if='serial.original_language == "en" || serial.original_language == "it"' v-html="flag(serial.original_language)"></h3>
                 <h3 v-else>Language: {{serial.original_language}}</h3>
                 <h3>Rating: <i v-for ="(star, index) in 5" :class=" value(serial.vote_average) > index ? 'fas fa-star' : 'far fa-star'"></i> {{serial.vote_average}}</h3>
