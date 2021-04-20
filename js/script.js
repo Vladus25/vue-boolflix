@@ -58,10 +58,10 @@ function initVue() {
       },
       flag: function (language) {
         if (language == 'en') {
-          return 'Language: <img src="img/en.png" alt="bandiera-inglese">';
+          return 'Language: <img src="img/en.png" alt="Bandiera-Inglese">';
         }
         else if (language == 'it'){
-          return 'Language: <img src="img/it.png" alt="bandiera-italiana">';
+          return 'Language: <img src="img/it.png" alt="Bandiera-Italiana">';
         }
 
       },
